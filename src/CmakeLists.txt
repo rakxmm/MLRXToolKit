@@ -1,0 +1,10 @@
+add_executable(main)
+
+target_sources(main PRIVATE bitset.cpp main.cpp)
+
+target_compile_options(main PRIVATE
+    -Wall
+    -Wextra
+    -Wpedantic
+    -std=c++20
+)
