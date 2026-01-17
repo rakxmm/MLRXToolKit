@@ -1,4 +1,14 @@
-{
-    "FirstName" : "Matthew",
-    "LastName" : "Racek"
-}
+[{"id": 1,
+    "credentials": {
+      "FirstName": "Matthew",
+      "LastName": "Racek"
+    }
+  },
+  {
+    "id": 2,
+    "credentials": {
+      "FirstName": "Caroline",
+      "LastName": "Jasso"
+    }
+  }
+]
