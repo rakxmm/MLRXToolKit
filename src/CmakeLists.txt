@@ -1,6 +1,6 @@
 add_executable(main)
 
-target_sources(main PRIVATE json_value.cpp main.cpp)
+target_sources(main PRIVATE main.cpp)
 
 target_compile_options(main PRIVATE
     -Wall

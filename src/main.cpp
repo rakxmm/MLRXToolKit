@@ -1,31 +1,19 @@
 
-#include "bitset.hpp"
 #include "json_value.hpp"
 #include "json_parser.hpp"
-#include <cctype>
-#include <chrono>
-#include <cstddef>
-#include <cstring>
-#include <exception>
-#include <iomanip>
 #include <iostream>
 #include <stdexcept>
 #include <string>
-#include <vector>
 #include <fstream>
 
 
-#define LOG(x) std::cout << std::setprecision(10) << x << std::endl
+#define LOG(x) std::cout << std::setprecision(3) << x << std::endl
 
-
-
-double parseNumber(std::string& res) {
-    // std::string res = parseString();
-    return std::stold(res.c_str(), NULL);
-}
-
-int main() {
-    std::ifstream file("../data/file.json");
+int main (int argc, char *argv[]) {
+    (void)argc;
+    (void)argv;
+    std::ifstream file(argv[1]);
+    // std::ifstream file("../data/file.json");
     std::string text = "";
     std::string s;
     if(!file.is_open()) throw std::runtime_error("[ERROR] File was not found!");
@@ -39,19 +27,9 @@ int main() {
         text += s;
     }   
     
-    LOG(text);
-    
-
-    // std::string a = "[{\"name\":\"Matthew\"}]";
-
-    // std::string sd = "12321.723";
-
-    rx::JSONParser parser(&text, 0);
+    rx::JSONParser parser;
     parser.parse(&text);
-    // LOG(parser.parseRow().toString());
-    
-
-    
+    LOG(parser.getRoot()->toString());
 
 
     file.close();

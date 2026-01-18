@@ -11,6 +11,8 @@
 
 namespace rx {
 
+struct JSONPair;
+
 // =====================================
 //          JSON VALUE
 // =====================================
@@ -24,37 +26,6 @@ struct JSONValue {
 
 inline JSONValue::~JSONValue() {};
 
-
-// =====================================
-//          JSON NODE
-// =====================================
-
-class JSONNode : public JSONValue {
-
-public:
-    JSONNode() : m_parent(nullptr) {};
-
-    JSONNode(JSONValue* parent) : m_parent(parent) {};
-
-    std::string toString() override {
-        return "";
-    };
-
-    bool isRoot() {return m_parent == nullptr;}
-
-    void push(const std::string key, JSONValue* value) {
-        m_vals[key] = value;
-    }
-
-    ~JSONNode() {};
-
-    
-
-private:
-    JSONValue* m_parent; 
-    std::unordered_map<std::string, JSONValue*> m_vals;
-    
-};
 
 
 
@@ -94,7 +65,7 @@ struct JSONValue_string : public JSONValue {
     JSONValue_string(std::string s) : m_value(s) {};
 
     std::string toString() override {
-        return m_value;
+        return "\"" + m_value + "\"";
     };
 
     ~JSONValue_string() {};
@@ -156,7 +127,14 @@ struct  JSONValue_array : public JSONValue {
     JSONValue_array() {};
 
     std::string toString() override {
-        return NOT_IMPLEMENTED;
+        std::string s = "[";
+        for (JSONValue* v : m_array) {
+            s += v->toString();
+            if (v != m_array.back()) {
+                s+=',';
+            }
+        }
+        return s += ']';
     };
 
     ~JSONValue_array() {
@@ -190,6 +168,48 @@ struct JSONPair {
 
     std::string m_key;
     JSONValue* m_value;
+};
+
+// =====================================
+//          JSON NODE
+// =====================================
+
+class JSONNode : public JSONValue {
+
+public:
+    JSONNode() : m_parent(nullptr) {};
+
+    JSONNode(JSONValue* parent) : m_parent(parent) {};
+
+    std::string toString() override {
+        std::string s = "{\n";
+        for(JSONPair* p : m_pairs) {
+            s += "\t" + p->toString();
+            if (p != m_pairs.back()) s+= ",\n";
+           
+        }
+
+        return s+="\n}";
+    };
+
+    bool isRoot() {return m_parent == nullptr;}
+
+    void push(JSONPair* pair) {
+       m_pairs.push_back(pair);
+    }
+
+    ~JSONNode() {
+        for (JSONPair* p : m_pairs) {
+            delete p;
+        }
+    };
+
+    
+
+private:
+    JSONValue* m_parent; 
+    std::vector<JSONPair*> m_pairs;
+    
 };
 
 
