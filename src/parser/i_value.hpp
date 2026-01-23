@@ -10,6 +10,7 @@ namespace rx::parser {
         public:
             virtual std::string str() = 0;
             virtual ~IValue() = 0;
+            virtual std::string type() = 0;
     };
 
     inline IValue::~IValue() {};
@@ -21,6 +22,7 @@ namespace rx::parser {
             int asInt() {return m_val;}
             long double get() {return m_val;};
             std::string str() override {return std::to_string(m_val);};
+            std::string type() override {return "Number";}
         private:
             long double m_val;
     };
@@ -30,6 +32,7 @@ namespace rx::parser {
             String(std::string s) : m_val(s) {};
 
             std::string str() override {return m_val;};
+            std::string type() override {return "String";}
         private:
             std::string m_val;
     };
@@ -39,6 +42,7 @@ namespace rx::parser {
             Bool(bool b) : m_val(b) {};
             bool get() {return m_val;};
             std::string str() override {return m_val ? "true" : "false";};
+            std::string type() override {return "Boolean";}
         private:
             bool m_val;
     };

@@ -13,14 +13,13 @@ namespace rx::parser::csv {
             // Reads CSV file and puts it in the CSV formated Object! 
             IValue* parse(const std::string& filepath) override;
             
+            // Parses line into different columns separated by ',' if not said differently.
+            std::vector<IValue*> parseLine(std::string& line);
+
         protected:
 
         private:
-            // Compares first two lines. If all columns are string in both lines, -> no header; otherwise -> yes header
-            bool checkHeader();
-
-            // Parses line into different columns separated by ',' if not said differently.
-            std::vector<IValue*> parseHeader(std::string& header);
+            
     };     
     
 } // end namespace

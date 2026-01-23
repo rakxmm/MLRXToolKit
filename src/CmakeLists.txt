@@ -12,8 +12,8 @@ add_subdirectory(dataframe)
 add_subdirectory(parser)
 
 target_link_libraries(main PRIVATE 
-    parser_lib
     df_lib
     csv_lib
+    parser_lib
     # json_lib
 )
