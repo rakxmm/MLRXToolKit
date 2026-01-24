@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-#include <dataframe/base_col.hpp>
+#include <dataframe/i_column.hpp>
 
 namespace rx::df {
 

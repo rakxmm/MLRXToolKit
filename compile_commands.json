@@ -1,20 +1,20 @@
 [
 {
-  "directory": "C:/Users/mates/Desktop/Git/cpp/build",
-  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/cpp/include -Wall -Wextra -Wpedantic -std=c++20 -o src\\dataframe\\CMakeFiles\\rx_dataframe.dir\\dataframe.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\dataframe\\dataframe.cpp",
-  "file": "C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\dataframe\\dataframe.cpp",
+  "directory": "C:/Users/mates/Desktop/Git/MLRXToolKit/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/MLRXToolKit/include -Wall -Wextra -Wpedantic -std=c++20 -o src\\dataframe\\CMakeFiles\\rx_dataframe.dir\\dataframe.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\MLRXToolKit\\src\\dataframe\\dataframe.cpp",
+  "file": "C:\\Users\\mates\\Desktop\\Git\\MLRXToolKit\\src\\dataframe\\dataframe.cpp",
   "output": "src\\dataframe\\CMakeFiles\\rx_dataframe.dir\\dataframe.cpp.obj"
 },
 {
-  "directory": "C:/Users/mates/Desktop/Git/cpp/build",
-  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/cpp/include -Wall -Wextra -Wpedantic -std=c++20 -o src\\parser\\CMakeFiles\\rx_parser.dir\\parser.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\parser\\parser.cpp",
-  "file": "C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\parser\\parser.cpp",
+  "directory": "C:/Users/mates/Desktop/Git/MLRXToolKit/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/MLRXToolKit/include -Wall -Wextra -Wpedantic -std=c++20 -o src\\parser\\CMakeFiles\\rx_parser.dir\\parser.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\MLRXToolKit\\src\\parser\\parser.cpp",
+  "file": "C:\\Users\\mates\\Desktop\\Git\\MLRXToolKit\\src\\parser\\parser.cpp",
   "output": "src\\parser\\CMakeFiles\\rx_parser.dir\\parser.cpp.obj"
 },
 {
-  "directory": "C:/Users/mates/Desktop/Git/cpp/build",
-  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/cpp/include -std=c++20 -o bin\\CMakeFiles\\main.dir\\main.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\cpp\\bin\\main.cpp",
-  "file": "C:\\Users\\mates\\Desktop\\Git\\cpp\\bin\\main.cpp",
+  "directory": "C:/Users/mates/Desktop/Git/MLRXToolKit/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/MLRXToolKit/include -Wall -Wextra -Wpedantic -std=c++20 -o bin\\CMakeFiles\\main.dir\\main.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\MLRXToolKit\\bin\\main.cpp",
+  "file": "C:\\Users\\mates\\Desktop\\Git\\MLRXToolKit\\bin\\main.cpp",
   "output": "bin\\CMakeFiles\\main.dir\\main.cpp.obj"
 }
 ]
