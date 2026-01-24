@@ -1,3 +1,4 @@
+#include <dataframe/dataframe.hpp>
 
 namespace rx::df {
 
