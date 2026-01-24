@@ -1,14 +1,20 @@
 [
 {
-  "directory": "C:/Users/racek/Desktop/cpp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -g -Wall -Wextra -Wpedantic -std=c++20 -o src\\CMakeFiles\\main.dir\\parser\\parser.cpp.obj -c C:\\Users\\racek\\Desktop\\cpp\\src\\parser\\parser.cpp",
-  "file": "C:/Users/racek/Desktop/cpp/src/parser/parser.cpp",
-  "output": "C:/Users/racek/Desktop/cpp/build/src/CMakeFiles/main.dir/parser/parser.cpp.obj"
+  "directory": "C:/Users/mates/Desktop/Git/cpp/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/cpp/include -Wall -Wextra -Wpedantic -std=c++20 -o src\\dataframe\\CMakeFiles\\rx_dataframe.dir\\dataframe.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\dataframe\\dataframe.cpp",
+  "file": "C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\dataframe\\dataframe.cpp",
+  "output": "src\\dataframe\\CMakeFiles\\rx_dataframe.dir\\dataframe.cpp.obj"
 },
 {
-  "directory": "C:/Users/racek/Desktop/cpp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe -g -Wall -Wextra -Wpedantic -std=c++20 -o src\\CMakeFiles\\main.dir\\main.cpp.obj -c C:\\Users\\racek\\Desktop\\cpp\\src\\main.cpp",
-  "file": "C:/Users/racek/Desktop/cpp/src/main.cpp",
-  "output": "C:/Users/racek/Desktop/cpp/build/src/CMakeFiles/main.dir/main.cpp.obj"
+  "directory": "C:/Users/mates/Desktop/Git/cpp/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/cpp/include -Wall -Wextra -Wpedantic -std=c++20 -o src\\parser\\CMakeFiles\\rx_parser.dir\\parser.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\parser\\parser.cpp",
+  "file": "C:\\Users\\mates\\Desktop\\Git\\cpp\\src\\parser\\parser.cpp",
+  "output": "src\\parser\\CMakeFiles\\rx_parser.dir\\parser.cpp.obj"
+},
+{
+  "directory": "C:/Users/mates/Desktop/Git/cpp/build",
+  "command": "C:\\mingw64\\bin\\c++.exe -IC:/Users/mates/Desktop/Git/cpp/include -std=c++20 -o bin\\CMakeFiles\\main.dir\\main.cpp.obj -c C:\\Users\\mates\\Desktop\\Git\\cpp\\bin\\main.cpp",
+  "file": "C:\\Users\\mates\\Desktop\\Git\\cpp\\bin\\main.cpp",
+  "output": "bin\\CMakeFiles\\main.dir\\main.cpp.obj"
 }
 ]
