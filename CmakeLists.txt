@@ -2,13 +2,24 @@ cmake_minimum_required(VERSION 3.19)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-project(libalg
-    VERSION     0.0.1
-    DESCRIPTION "Library that represents matrices and its operations."
+project(mlrxtoolkit
+    VERSION     1.0.0
+    DESCRIPTION "Library/ToolKit containing linear algebra and ML Models."
     LANGUAGES   CXX
 )
 
-# Skopíruje priečinok data do build priečinka pri každej zmene
+add_library(rx_interface INTERFACE)
+target_include_directories(
+    rx_interface INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
+
+# Copies /data folder in every change.
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/src)
 
 add_subdirectory(src)
+
+
+
+
+add_subdirectory(bin)

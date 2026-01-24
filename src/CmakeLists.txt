@@ -1,19 +1,6 @@
-add_executable(main main.cpp)
-
-
-target_compile_options(main PRIVATE
-    -Wall
-    -Wextra
-    -Wpedantic
-    -std=c++20
-)
+# Firstly, add all subdirectories
 add_subdirectory(dataframe)
-
+# add_subdirectory(math)
+# add_subdirectory(models)
 add_subdirectory(parser)
 
-target_link_libraries(main PRIVATE 
-    df_lib
-    csv_lib
-    parser_lib
-    # json_lib
-)
