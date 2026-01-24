@@ -8,18 +8,17 @@ project(mlrxtoolkit
     LANGUAGES   CXX
 )
 
+set(EXPORT_COMPILE_COMMANDS ON)
+
 add_library(rx_interface INTERFACE)
-target_include_directories(
-    rx_interface INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+target_include_directories(rx_interface INTERFACE 
+    "${PROJECT_SOURCE_DIR}/include"
 )
 
 # Copies /data folder in every change.
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/src)
 
+
 add_subdirectory(src)
-
-
-
 
 add_subdirectory(bin)
