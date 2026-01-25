@@ -1,26 +1,11 @@
 #pragma once
 
-
+// Includes
+#include <dataframe/basecol.hpp>
 #include <vector>
+// End includes
+
 namespace rx::df {
-    class BaseCol {
-        public:
-            
-            virtual ~BaseCol() = 0;
-
-            virtual size_t size() = 0;
-        protected:
-        private:
-    };
-
-    /**
-        Represents flatted array in the column.
-    */
-    template<typename T>
-    class ListedCol : public BaseCol {
-
-    };
-
     /**
         Represents type column.
     */
@@ -41,5 +26,4 @@ namespace rx::df {
         private:
             std::vector<T> m_data;
     };
-
 } // end rx::df
