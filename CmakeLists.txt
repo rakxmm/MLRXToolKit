@@ -15,9 +15,8 @@ target_include_directories(rx_interface INTERFACE
     "${PROJECT_SOURCE_DIR}/include"
 )
 
-# Copies /data folder in every change.
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/src)
 
+set(DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/data")
 
 add_subdirectory(src)
 

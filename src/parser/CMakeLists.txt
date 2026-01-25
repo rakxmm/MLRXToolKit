@@ -1,6 +1,6 @@
 add_library(rx_parser STATIC parser.cpp)
 
-# add_subdirectory(csv)
+add_subdirectory(csv)
 # add_subdirectory(json)
 
 target_compile_options(rx_parser PRIVATE -Wall -Wextra -Wpedantic)
