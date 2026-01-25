@@ -1,8 +1,8 @@
 #pragma once
 
-#include "dataframe/i_column.hpp"
 #include <string>
 #include <unordered_map>
+#include <dataframe/basecol.hpp>
 namespace rx::parser {
     struct ParsedData {
 
