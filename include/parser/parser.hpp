@@ -6,8 +6,13 @@
 
 <<<<<<< Updated upstream
 
+#include "parsed_data.hpp"
 namespace rx::parser {
+    class Parser {
+        public:
+            virtual ~Parser() = default;
 
+<<<<<<< HEAD
 =======
 namespace rx::parser {
     class Parser {
@@ -30,6 +35,12 @@ namespace rx::parser {
             std::filesystem::path get_executable_path();
     };  
 >>>>>>> Stashed changes
+=======
+            virtual ParsedData getParsedData() = 0;
+        protected:
+            ParsedData m_parsedData;
+    };  
+>>>>>>> cec6fe96cf78d2aad87ca83e360e356e92c58112
     
 } // end rx::parser
 
