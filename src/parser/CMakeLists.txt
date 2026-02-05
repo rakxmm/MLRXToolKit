@@ -1,4 +1,4 @@
-add_library(rx_parser STATIC parser.cpp)
+add_library(rx_parser STATIC parsed_data.cpp parser.cpp)
 
 add_subdirectory(csv)
 # add_subdirectory(json)

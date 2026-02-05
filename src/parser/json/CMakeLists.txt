@@ -1,2 +1,2 @@
 add_library(rx_parser_json STATIC json_parser.cpp)
-target_link_libraries(rx_parser_json PUBLIC rx_interface)
+target_link_libraries(rx_parser_json PUBLIC rx_interface rx_parser)
