@@ -26,7 +26,9 @@ namespace rx::parser {
             void closeFile();
 
             long long parseInt(const std::string& token);
+            
             bool parseBool(const std::string& token);
+
             long double parseFloat(const std::string& token);
 
             /** Returns Primitive DataType */

@@ -1,7 +1,6 @@
-#include "dataframe/basecol.hpp"
-#include "dataframe/datacol.hpp"
-#include "dataframe/dataframe.hpp"
-#include "parser/parsed_data.hpp"
+#include <dataframe/basecol.hpp>
+#include <dataframe/datacol.hpp>
+#include <parser/parsed_data.hpp>
 #include <parser/parser.hpp>
 #include <iostream>
 #include <parser/csv/csvparser.hpp>
@@ -32,62 +31,67 @@ namespace rx::parser::csv {
             tokens = getTokens(line);
             if (m_hasHeader) {
                 // if header exists, then tokens are currently names of the columns
-                col_names = tokens;
+                col_names = std::move(tokens);
+                tokens = (canRead(line)) ? 
+                    getTokens(line) : 
+                        throw std::runtime_error("Cannot determine what datacols shoud be created!");
             } else {
-                // get datatypes for cols
-                std::vector<DataType> col_datatypes = getTokensTypes(tokens);
-                // set default names for the columns
+                 // set default names for the columns
                 for (size_t index = 0; index < tokens.size(); index++) {
                     col_names.push_back(DEFAULT_COL_NAME + std::to_string(index));
-
-                    DataType datatype = col_datatypes.at(index);
-                    df::BaseCol* col = nullptr;
-                    switch (datatype) {
-                        case DataType::INT:
-                            col = new df::DataCol<long int>();                            
-                            break;
-                        case DataType::FLOAT:
-                            col = new df::DataCol<long double>(); 
-                            break;
-                        case DataType::BOOL:
-                            col = new df::DataCol<bool>(); 
-                            break;
-                        case DataType::STRING:
-                            col = new df::DataCol<std::string>(); 
-                            break;
-                        case DataType::ARRAY_BOOL:
-                            throw std::runtime_error(NOT_IMPLEMENTED);
-                            break;
-                        case DataType::ARRAY_INT:
-                            throw std::runtime_error(NOT_IMPLEMENTED);
-                            break;
-                        case DataType::ARRAY_FLOAT:
-                            throw std::runtime_error(NOT_IMPLEMENTED);
-                            break;
-                        case DataType::ARRAY_STRING:
-                            throw std::runtime_error(NOT_IMPLEMENTED);
-                            break;
-                        default:
-                            throw std::runtime_error("Unknown DataType error.");
-                            break;
-                    }
-
-                    m_parsedData.addColumn(col, col_names.back());
                 }
             }
+
+            // get datatypes for cols
+            std::vector<DataType> col_datatypes = getTokensTypes(tokens);
+           
+            for (size_t index = 0; index < tokens.size(); index++) {
+                DataType datatype = col_datatypes.at(index);
+                df::BaseCol* col = nullptr;
+                switch (datatype) {
+                    case DataType::INT:
+                        col = new df::DataCol<long int>();                            
+                        break;
+                    case DataType::FLOAT:
+                        col = new df::DataCol<long double>(); 
+                        break;
+                    case DataType::BOOL:
+                        col = new df::DataCol<bool>(); 
+                        break;
+                    case DataType::STRING:
+                        col = new df::DataCol<std::string>(); 
+                        break;
+                    case DataType::ARRAY_BOOL:
+                        throw std::runtime_error(NOT_IMPLEMENTED);
+                        break;
+                    case DataType::ARRAY_INT:
+                        throw std::runtime_error(NOT_IMPLEMENTED);
+                        break;
+                    case DataType::ARRAY_FLOAT:
+                        throw std::runtime_error(NOT_IMPLEMENTED);
+                        break;
+                    case DataType::ARRAY_STRING:
+                        throw std::runtime_error(NOT_IMPLEMENTED);
+                        break;
+                    default:
+                        throw std::runtime_error("Unknown DataType error.");
+                        break;
+                }
+                col->push(tokens.at(index));
+                m_parsedData.addColumn(col, col_names.at(index));
+            }
+            
         } else {
             throw std::runtime_error("Cannot read first line of the specified file.");
         }
-        
 
-        
-
-        // TODO
-        /*
-            1. Reads first line and parses it into tokens -> names for the columns
-            2. Reads second line, parses it into tokens. based of the datatypes of each token, returns vector of datatypes
-            3. push parsed data into the dataframe in certain intervals
-        */
+        while(canRead(line)) {
+            tokens = getTokens(line);
+            for (size_t i = 0; i < m_parsedData.colCount(); i++) {
+                std::string token = (i < tokens.size()) ? tokens.at(i) : "";
+                m_parsedData[i]->push(token);
+            }
+        }
     };
 
     /** Parses line into the vector of tokens separated by specified separator. */
@@ -102,14 +106,13 @@ namespace rx::parser::csv {
             if (c == '"') {
                 hasQuotes = !hasQuotes;
             } else if (c == m_separator && !hasQuotes) {
-                std::cout << "token|" << token << "|\n";
                 tokens.push_back(token);
                 token.clear();
             } else {
                 token+=c;
             }
         };
-        std::cout << "size: " << tokens.size();
+        tokens.push_back(token);
         return tokens;
     };
 
@@ -129,6 +132,7 @@ namespace rx::parser::csv {
                 }
             }
         }
+        return datatypes;
     };
 
 
