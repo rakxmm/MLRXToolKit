@@ -32,6 +32,7 @@ namespace rx::df {
     }
 
     void consume(parser::ParsedData&& chunk) {
+        (void)chunk;
         throw std::runtime_error(NOT_IMPLEMENTED);
     }
 

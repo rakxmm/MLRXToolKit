@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <string>
 namespace rx::df {
     class BaseCol {
         public:
@@ -9,9 +10,9 @@ namespace rx::df {
             virtual size_t size() = 0;
 
             virtual void print() = 0;
-        protected:
-            size_t m_size;
-    };
 
+            virtual void push(const std::string& token) = 0;
+    };
+    inline BaseCol::~BaseCol() {};
 
 } // end rx::df
